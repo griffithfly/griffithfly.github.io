@@ -117,7 +117,7 @@ async function loadCSVFromFile() {
 function loadSampleData() {
     const sampleCSV = `name,email,role,team,institution,projects,data_sources,services,status
 Linda Chaba,person1@gmail.com,Translational TB Team Leader,Translational TB;DSMG,UCSF,Linda Project 1;Linda Project 2,JHU;CSU,Slack;Teams,active
-Ziran Li,person2@gmail.com,Malaria Team Leader,Malaria; Translational TB,UCSF,Ziran Project 1;Ziran Project 2,JHU;CSU; Servers,GitHub;Docker,active
+Ziran Li,person2@gmail.com,Malaria Team Leader,Malaria;Translational TB,UCSF,Ziran Project 1;Ziran Project 2,JHU;CSU;Servers,GitHub;Docker,active
 Person3,person3@company.com,Senior Researcher,Research;Data Science,Harvard University,Machine Learning;Data Pipeline,Research Data;Survey Results;Lab Results,Python;Jupyter;AWS,active
 Person4,person4@company.com,Developer,Engineering;DevOps,Stanford University,API Platform;Mobile App,Application Logs;User Analytics,GitHub;Jenkins;Docker,active
 Person5,person5@company.com,Junior Developer,Engineering,MIT,Mobile App;Web Portal,Test Data;Development Database,GitHub;VS Code,active
