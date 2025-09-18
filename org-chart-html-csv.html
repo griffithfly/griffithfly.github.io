@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personnel Organizational Chart - Data Management System">
+    <title>OrgChart Pro | Personnel Management</title>
+    
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <i class="fas fa-sitemap"></i>
+                    <span>OrgChart Pro</span>
+                </div>
+                <div class="nav-actions">
+                    <button class="btn-icon" id="refreshData" title="Refresh Data">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <!-- Admin Upload Button (hidden by default) -->
+                    <button class="btn-secondary" id="uploadCSV" style="display: none;">
+                        <i class="fas fa-upload"></i>
+                        Update Data
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container main-container">
+        <!-- Main Dashboard (Default View) -->
+        <section id="mainDashboard" class="dashboard-section">
+            <!-- Data Info Bar -->
+            <div id="dataInfoBar" class="data-info-bar">
+                <i class="fas fa-info-circle"></i>
+                <span id="dataInfoText">Loading personnel data...</span>
+            </div>
+            
+            <!-- Statistics Overview -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="totalPersonnel">0</div>
+                        <div class="stat-label">Total Personnel</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="totalTeams">0</div>
+                        <div class="stat-label">Teams</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="totalInstitutions">0</div>
+                        <div class="stat-label">Institutions</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="totalProjects">0</div>
+                        <div class="stat-label">Active Projects</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="totalDataSources">0</div>
+                        <div class="stat-label">Data Sources</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="totalServices">0</div>
+                        <div class="stat-label">Services</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View Tabs -->
+            <div class="view-tabs">
+                <button class="tab-btn active" data-view="grid">
+                    <i class="fas fa-th"></i>
+                    Grid View
+                </button>
+                <button class="tab-btn" data-view="table">
+                    <i class="fas fa-table"></i>
+                    Table View
+                </button>
+                <button class="tab-btn" data-view="teams">
+                    <i class="fas fa-users"></i>
+                    Teams
+                </button>
+                <button class="tab-btn" data-view="projects">
+                    <i class="fas fa-tasks"></i>
+                    Projects
+                </button>
+                <button class="tab-btn" data-view="data-sources">
+                    <i class="fas fa-database"></i>
+                    Data Sources
+                </button>
+                <button class="tab-btn" data-view="services">
+                    <i class="fas fa-cogs"></i>
+                    Services
+                </button>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="search-filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search by name, email, role, team, project, data source...">
+                </div>
+                
+                <div class="filter-group">
+                    <select id="teamFilter" class="filter-select">
+                        <option value="">All Teams</option>
+                    </select>
+                    
+                    <select id="institutionFilter" class="filter-select">
+                        <option value="">All Institutions</option>
+                    </select>
+                    
+                    <select id="projectFilter" class="filter-select">
+                        <option value="">All Projects</option>
+                    </select>
+                    
+                    <select id="dataSourceFilter" class="filter-select">
+                        <option value="">All Data Sources</option>
+                    </select>
+                    
+                    <select id="statusFilter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                    
+                    <button class="btn-secondary" id="clearFilters">
+                        <i class="fas fa-times"></i>
+                        Clear
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Content Area -->
+            <div class="content-area">
+                <!-- Grid View -->
+                <div id="gridView" class="view-content active">
+                    <div class="personnel-grid" id="personnelGrid">
+                        <!-- Personnel cards will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Table View -->
+                <div id="tableView" class="view-content">
+                    <div class="table-container">
+                        <table class="data-table" id="personnelTable">
+                            <thead>
+                                <tr>
+                                    <th data-sort="name">Name <i class="fas fa-sort"></i></th>
+                                    <th data-sort="email">Email <i class="fas fa-sort"></i></th>
+                                    <th data-sort="role">Role <i class="fas fa-sort"></i></th>
+                                    <th data-sort="team">Team(s)</th>
+                                    <th data-sort="institution">Institution</th>
+                                    <th data-sort="projects">Projects</th>
+                                    <th data-sort="data_sources">Data Sources</th>
+                                    <th data-sort="services">Services</th>
+                                    <th data-sort="status">Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="personnelTableBody">
+                                <!-- Table rows will be dynamically inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination controls will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Teams View -->
+                <div id="teamsView" class="view-content">
+                    <div class="teams-header">
+                        <h2>Team Organization</h2>
+                        <p>Personnel grouped by their team assignments</p>
+                    </div>
+                    <div class="teams-grid" id="teamsGrid">
+                        <!-- Team cards will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Projects View -->
+                <div id="projectsView" class="view-content">
+                    <div class="projects-header">
+                        <h2>Project Overview</h2>
+                        <p>Personnel assigned to each project. Members can work on multiple projects simultaneously.</p>
+                    </div>
+                    <div class="projects-grid" id="projectsGrid">
+                        <!-- Project cards will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Data Sources View -->
+                <div id="dataSourcesView" class="view-content">
+                    <div class="data-sources-header">
+                        <h2>Data Sources Management</h2>
+                        <p>Personnel responsible for various data sources and datasets</p>
+                    </div>
+                    <div class="data-sources-grid" id="dataSourcesGrid">
+                        <!-- Data source cards will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Services View -->
+                <div id="servicesView" class="view-content">
+                    <div class="services-header">
+                        <h2>Service Administration</h2>
+                        <p>Personnel managing various services and tools</p>
+                    </div>
+                    <div class="services-grid" id="servicesGrid">
+                        <!-- Service cards will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Actions -->
+            <div class="export-actions">
+                <button class="btn-secondary" id="exportCSV">
+                    <i class="fas fa-file-csv"></i>
+                    Export as CSV
+                </button>
+                <button class="btn-secondary" id="exportJSON">
+                    <i class="fas fa-file-code"></i>
+                    Export as JSON
+                </button>
+                <button class="btn-secondary" id="exportPDF">
+                    <i class="fas fa-file-pdf"></i>
+                    Export as PDF
+                </button>
+                <button class="btn-primary" id="printReport">
+                    <i class="fas fa-print"></i>
+                    Print Report
+                </button>
+            </div>
+        </section>
+
+        <!-- Import Section (Hidden, only for admin use) -->
+        <section id="dataImportSection" class="import-section" style="display: none;">
+            <div class="import-card">
+                <div class="import-header">
+                    <i class="fas fa-file-import"></i>
+                    <h2>Update Personnel Data</h2>
+                    <p>Upload a new CSV file to update the organization data</p>
+                </div>
+                
+                <!-- CSV Upload Area -->
+                <div class="upload-area" id="csvUploadArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drop CSV file here or click to browse</h3>
+                    <p>Format: name, email, role, team, institution, projects, data_sources, services, status</p>
+                    <input type="file" id="csvFileInput" accept=".csv" hidden>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <button class="btn-secondary" id="cancelImport">
+                        <i class="fas fa-times"></i>
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Person Detail Modal -->
+    <div id="personModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalPersonName">Person Details</h2>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Person details will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="closeModalBtn">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="projectModalTitle">Project Team</h2>
+                <button class="modal-close" id="closeProjectModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="projectModalBody">
+                <!-- Project team details will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="closeProjectModalBtn">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Source Detail Modal -->
+    <div id="dataSourceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="dataSourceModalTitle">Data Source Details</h2>
+                <button class="modal-close" id="closeDataSourceModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="dataSourceModalBody">
+                <!-- Data source details will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="closeDataSourceModalBtn">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Hidden file input for CSV upload -->
+    <input type="file" id="hiddenFileInput" accept=".csv" style="display: none;">
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading data...</p>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="app.js"></script>
+    
+    <!-- Admin Mode Toggle Script -->
+    <script>
+        // Press Ctrl+Shift+A to toggle admin mode (show/hide upload button)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+                e.preventDefault();
+                const uploadBtn = document.getElementById('uploadCSV');
+                if (uploadBtn.style.display === 'none') {
+                    uploadBtn.style.display = 'inline-flex';
+                    console.log('Admin mode enabled');
+                } else {
+                    uploadBtn.style.display = 'none';
+                    console.log('Admin mode disabled');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
