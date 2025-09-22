@@ -116,14 +116,14 @@ async function loadCSVFromFile() {
 // ================================
 function loadSampleData() {
     const sampleCSV = `name,email,role,team,institution,projects,data_sources,services,status
-Linda Chaba,person1@gmail.com,Translational TB Team Leader,Translational TB;DSMG,UCSF,Linda Project 1;Linda Project 2,JHU;CSU,R;Slack,active
-Ziran Li,person2@gmail.com,Malaria Team Leader,Malaria;Translational TB,UCSF,Relapse prediction by ML;AI-based digital twins for TB clinical trials,JHU;CSU;UCSF;Servers,R;Slack,active
-Person3,person3@company.com,Senior Researcher,Research;Data Science,Harvard University,Machine Learning;Data Pipeline,Research Data;Survey Results;Lab Results,Python;Jupyter;AWS,active
-Person4,person4@company.com,Developer,Engineering;DevOps,Stanford University,API Platform;Mobile App,Application Logs;User Analytics,GitHub;Jenkins;Docker,active
-Person5,person5@company.com,Junior Developer,Engineering,MIT,Mobile App;Web Portal,Test Data;Development Database,GitHub;VS Code,active
-Person6,person6@company.com,Project Manager,Management;Operations,Yale University,Mobile App;Customer Dashboard,Project Metrics;Budget Reports,Jira;Slack;Confluence,active
-Person7,person7@company.com,Data Analyst,Data Science;Analytics,Harvard University,Data Pipeline;Analytics Report,Customer Data;Sales Data;Marketing Analytics,Tableau;SQL Server;Excel,active
-Person8,person8@company.com,DevOps Engineer,DevOps;Infrastructure,Stanford University,Cloud Migration;Infrastructure Upgrade,Infrastructure Logs;Security Logs;Deployment Metrics,Docker;Jenkins;Kubernetes;AWS,active`;
+person1,person1@company.com,Translational TB Team Leader,Translational TB;DSMG;Malaria;AI/Stats,UCSF,Relapse predictions;PopPk,JHU;CSU;Evotec,Slack;Teams;R;GitHub,active
+person2,person1@company.com,Malaria Team Leader,Malaria;Translational TB,UCSF,Relapse prediction by ML;AI-based digital twins for TB clinical trials,JHU;CSU;UCSF;Servers,Slack;Teams;R,active
+person3,person1@company.com,AI/Stats Team leader,AI/Stats;Translational TB;Clinical TB,UCSF,BDB;BMGF;PopPk,Dropbox;Collaborator websites,Slack;GitHub;R;py,active
+person4,person1@company.com,Postdoc,Translational TB team,UCSF,CFU Modeling,JHU;CSU,Slack;Email;R;NONMEM,active
+person5,person1@company.com,Developer,Engineering,MIT,Mobile App;Web Portal,Test Data;Development Database,GitHub;VS Code,active
+person6,person1@company.com,Project Manager,Management;Operations,Yale University,Mobile App;Customer Dashboard,Project Metrics;Budget Reports,Jira;Slack;Confluence,active
+person7,person1@company.com,Data Analyst,Data Science;Analytics,Harvard University,Data Pipeline;Analytics Report,Customer Data;Sales Data;Marketing Analytics,Tableau;SQL Server;Excel,active
+person8,person1@company.com,DevOps Engineer,DevOps;Infrastructure,Stanford University,Cloud Migration;Infrastructure Upgrade,Infrastructure Logs;Security Logs;Deployment Metrics,Docker;Jenkins;Kubernetes;AWS,active`;
     
     const csvData = parseCSV(sampleCSV);
     loadCSVData(csvData);
