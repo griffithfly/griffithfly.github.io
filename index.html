@@ -380,7 +380,11 @@
     </div>
 
     <!-- External Scripts -->
-    <script src="app.js?v=1.0.4"></script>
+    <script>
+    var script = document.createElement('script');
+    script.src = 'app.js?t=' + new Date().getTime();
+    document.head.appendChild(script);
+    </script>
     
     <!-- Admin Mode Toggle Script -->
     <script>
