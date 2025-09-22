@@ -121,7 +121,7 @@ Ziran Li,person1@company.com,Malaria Team Leader,Malaria;Translational TB,UCSF,R
 Connie Silva,person1@company.com,AI/Stats Team leader,AI/Stats;Translational TB;Clinical TB,UCSF,BDB;BMGF;PopPk,Dropbox;Collaborator websites,Slack;GitHub;R;py,active
 Bernard Ngara,person1@company.com,Postdoc,Translational TB team,UCSF,CFU Modeling,JHU;CSU,Slack;Email;R;NONMEM,active
 person5,person1@company.com,Test,Engineering,MIT,Mobile App;Web Portal,Test Data;Development Database,GitHub;VS Code,active
-person6,person1@company.com,Project Manager,Management;Operations,Yale University,Mobile App;Customer Dashboard,Project Metrics;Budget Reports,Jira;Slack;Confluence,active
+person6,person1@company.com,Test,Management;Operations,Yale University,Mobile App;Customer Dashboard,Project Metrics;Budget Reports,Jira;Slack;Confluence,active
 person7,person1@company.com,Data Analyst,Data Science;Analytics,Harvard University,Data Pipeline;Analytics Report,Customer Data;Sales Data;Marketing Analytics,Tableau;SQL Server;Excel,active
 person8,person1@company.com,DevOps Engineer,DevOps;Infrastructure,Stanford University,Cloud Migration;Infrastructure Upgrade,Infrastructure Logs;Security Logs;Deployment Metrics,Docker;Jenkins;Kubernetes;AWS,active`;
     
