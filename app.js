@@ -120,10 +120,13 @@ Linda Chaba,person1@company.com,Translational TB Team Leader,Translational TB;DS
 Ziran Li,person1@company.com,Malaria Team Leader,Malaria;Translational TB,UCSF,Relapse prediction by ML;AI-based digital twins for TB clinical trials,JHU;CSU;UCSF;Servers,Slack;Teams;R,active
 Connie Silva,person1@company.com,AI/Stats Team leader,AI/Stats;Translational TB;Clinical TB,UCSF,BDB;BMGF;PopPk,Dropbox;Collaborator websites,Slack;GitHub;R;py,active
 Bernard Ngara,person1@company.com,Postdoc,Translational TB team,UCSF,CFU Modeling,JHU;CSU,Slack;Email;R;NONMEM,active
-person5,person1@company.com,Test,Engineering,MIT,Mobile App;Web Portal,Test Data;Development Database,GitHub;VS Code,active
-person6,person1@company.com,Test,Management;Operations,Yale University,Mobile App;Customer Dashboard,Project Metrics;Budget Reports,Jira;Slack;Confluence,active
-person7,person1@company.com,Data Analyst,Data Science;Analytics,Harvard University,Data Pipeline;Analytics Report,Customer Data;Sales Data;Marketing Analytics,Tableau;SQL Server;Excel,active
-person8,person1@company.com,DevOps Engineer,DevOps;Infrastructure,Stanford University,Cloud Migration;Infrastructure Upgrade,Infrastructure Logs;Security Logs;Deployment Metrics,Docker;Jenkins;Kubernetes;AWS,active`;
+Maureen Shin,person1@company.com,Pediatric Team Leader,Pediatric;Oncology,UCSF,Pediatric clinical trial design,Dropbox,Slack;Email;R,active
+Ugo,person1@company.com,Postdoc,Translational TB,UCSF,,Dropbox,Slack;Email;R,active
+Anu Patel,person1@company.com,Graduate Student,Translational TB,UCSF,Human dose prediction;lesion penetration;translational PK-PD modeling,JHU;CSU;CDI,Slack;R;NONMEM;Teams,active
+Niurys de Castro,person1@company.com,Postdoc,Translational TB,UCSF,Combination prediction;caseum MBC;translational PK-PD modeling,JHU;CDI,Slack;Email;R;NONMEM;Teams;GitHub;Microsoft;Biorender,active
+Eunsol Yang,person1@company.com,Clinical TB Team / Oncology Team Leader,Clinical TB;Oncology;Translational TB,UCSF,Metformin;PedT2D;translational PKPD;TTP E-R;PopPK;WHO;I-SPY2,UCSF;Kaiser;TODAY;SEARCH;PandrTB;HIRIF;TrueBindings;I-SPY2;TB Alliance;JHU,Slack;Email;R;NONMEM;Teams;Box,active
+Dongsheng Yang,person1@company.com,Postdoc,Translational TB;Oncology,UCSF,Kramnik lesion;WHO;I-SPY2,JHU;CSU,Slack;Email;R;NONMEM,active
+Tae Chung,person1@company.com,Postdoc,Pediatric team,UCSF,WHO;DHS;Elafin;BMGF,S31;TBREFLECT;RIFASHORT;DMID;SimpliciTB;STAND;TB-Alliance;DHS,Slack;Teams;R;Python;SQL;NONMEM,active`;
     
     const csvData = parseCSV(sampleCSV);
     loadCSVData(csvData);
