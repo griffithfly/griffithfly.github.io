@@ -129,7 +129,7 @@ Dongsheng Yang,person1@company.com,Postdoc,Translational TB;Oncology,UCSF,Kramni
 Tae Chung,person1@company.com,Postdoc,Pediatric,UCSF,WHO;DHS;Elafin;BMGF,S31;TBREFLECT;RIFASHORT;DMID;SimpliciTB;STAND;TB-Alliance;DHS,Slack;Teams;R;Python;SQL;NONMEM,active
 Michael Yoon,person1@company.com,Clinical Pharmacology Fellow,Pediatric Team,UCSF,WHO;Adolescent PK Analysis,S31;Dropbox,Slack;Teams;Email;NONMEM;R,active
 Ava,person1@company.com,Graduate Student,Clinical TB,UCSF,S31 PGx,Dropbox;Wynton,Slack;Teams;Email;NONMEM;R,active
-Sejung Hwang,person1@company.com,Researcher,Research Team,UCSF,Research Projects,C-path;Dropbox,Slack;Teams;Email;NONMEM;R,active`;
+Sejung Hwang,person1@company.com,Researcher,Clinical TB,UCSF,Research Projects,C-path;Dropbox,Slack;Teams;Email;NONMEM;R,active`;
     
     const csvData = parseCSV(sampleCSV);
     loadCSVData(csvData);
