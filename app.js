@@ -117,19 +117,24 @@ async function loadCSVFromFile() {
 function loadSampleData() {
     const sampleCSV = `name,email,role,team,institution,projects,data_sources,services,status
 Linda Chaba,person1@company.com,Translational TB Team Leader,Translational TB;DSMG;Malaria;AI/Stats,UCSF,Relapse predictions;PopPk,JHU;CSU;Evotec,Slack;Teams;R;GitHub,active
-Ziran Li,person1@company.com,Malaria Team Leader,Malaria;Translational TB,UCSF,Relapse prediction by ML;AI-based digital twins for TB clinical trials,JHU;CSU;UCSF;Servers,Slack;Teams;R,active
-Connie Silva,person1@company.com,AI/Stats Team leader,AI/Stats;Translational TB;Clinical TB,UCSF,BDB;BMGF;PopPk,Dropbox;Collaborator websites,Slack;GitHub;R;py,active
-Bernard Ngara,person1@company.com,Postdoc,Translational TB,UCSF,CFU Modeling,JHU;CSU,Slack;Email;R;NONMEM,active
-Maureen Shin,person1@company.com,Pediatric Team Leader,Pediatric;Oncology,UCSF,Pediatric clinical trial design,Dropbox,Slack;Email;R,active
-Ugo,person1@company.com,Postdoc,Translational TB,UCSF,,Dropbox,Slack;Email;R,active
-Anu Patel,person1@company.com,Graduate Student,Translational TB,UCSF,Human dose prediction;lesion penetration;translational PK-PD modeling,JHU;CSU;CDI,Slack;R;NONMEM;Teams,active
-Niurys de Castro,person1@company.com,Postdoc,Translational TB,UCSF,Combination prediction;caseum MBC;translational PK-PD modeling,JHU;CDI,Slack;Email;R;NONMEM;Teams;GitHub;Microsoft;Biorender,active
-Eunsol Yang,person1@company.com,Clinical TB Team / Oncology Team Leader,Clinical TB;Oncology;Translational TB,UCSF,Metformin;PedT2D;translational PKPD;TTP E-R;PopPK;WHO;I-SPY2,UCSF;Kaiser;TODAY;SEARCH;PandrTB;HIRIF;TrueBindings;I-SPY2;TB Alliance;JHU,Slack;Email;R;NONMEM;Teams;Box,active
-Dongsheng Yang,person1@company.com,Postdoc,Translational TB;Oncology,UCSF,Kramnik lesion;WHO;I-SPY2,JHU;CSU,Slack;Email;R;NONMEM,active
-Tae Chung,person1@company.com,Postdoc,Pediatric,UCSF,WHO;DHS;Elafin;BMGF,S31;TBREFLECT;RIFASHORT;DMID;SimpliciTB;STAND;TB-Alliance;DHS,Slack;Teams;R;Python;SQL;NONMEM,active
-Michael Yoon,person1@company.com,Clinical Pharmacology Fellow,Pediatric Team,UCSF,WHO;Adolescent PK Analysis,S31;Dropbox,Slack;Teams;Email;NONMEM;R,active
-Ava,person1@company.com,Graduate Student,Clinical TB,UCSF,S31 PGx,Dropbox;Wynton,Slack;Teams;Email;NONMEM;R,active
-Sejung Hwang,person1@company.com,Researcher,Clinical TB,UCSF,Research Projects,C-path;Dropbox,Slack;Teams;Email;NONMEM;R,active`;
+Ziran,person2@company.com,Malaria Team Leader,Malaria;Translational TB,UCSF,Relapse prediction by ML;AI-based digital twins for TB clinical trials,JHU;CSU;UCSF;Servers,Slack;Teams;R,active
+Connie Silva,person3@company.com,AI/Stats Team leader,AI/Stats;Translational TB;Clinical TB,UCSF,BDB;BMGF;PopPk,Dropbox;Collaborator websites,Slack;GitHub;R;py,active
+Bernard Ngara,person4@company.com,Postdoc,Translational TB team,UCSF,CFU Modeling,JHU;CSU,Slack;Email;R;NONMEM,active
+Maureen Shin,person5@company.com,Pediatric Team Leader,Pediatric;Oncology,UCSF,Pediatric clinical trial design,Dropbox,Slack;Email;R,active
+Ugo Avila-Ponce de Leon,person6@company.com,Postdoc,HIV;Translational TB;Clinical team,UCSF,Math models HIV treatment with dCA;Invivo-invitro prediction;TTP math model as predictor,Dropbox,Slack;Email;R;Matlab;Monolix,active
+Anu Patel,person7@company.com,Graduate Student,Translational TB,UCSF,Human dose prediction;lesion penetration;translational PK-PD,JHU;CSU;CDI,Slack;R;NONMEM;Teams,active
+Niurys de Castro,person8@company.com,Postdoc,Translational TB,UCSF,Combination prediction;caseum MBC;translational PK-PD modeling,JHU;CDI,Slack;Email;R;NONMEM;Teams;GitHub;Microsoft;Biorender,active
+Eunsol Yang,person9@company.com,Clinical TB Team / Oncology Team Leader,Clinical TB;Oncology;Translational TB,UCSF,Metformin;PedT2D;translational PKPD;TTP E-R;PopPK;WHO;I-SPY2,UCSF;Kaiser;TODAY;SEARCH;PandrTB;HIRIF;TrueBindings;I-SPY2;TB Alliance;JHU,Slack;Email;R;NONMEM;Teams;Box,active
+Dongsheng Yang,person10@company.com,Postdoc,Translational TB;Oncology,UCSF,Kramnik lesion;WHO;I-SPY2,JHU;CSU,Slack;Email;R;NONMEM,active
+Tae Chung,person11@company.com,Postdoc,Pediatric team,UCSF,WHO;DHS;Elafin;BMGFS31;TBREFLECT;RIFASHORT;DMID;SimpliciTB;STAND;TB-Alliance;DHS,Dropbox,Slack;Teams;R;Python;SQL;NONMEM,active
+Michael Yoon,person12@company.com,Clinical Pharmacology Fellow,Pediatric Team,UCSF,WHO;Adolescent PK Analysis,S31;Dropbox,Slack;Teams;Email;NONMEM;R,active
+Ava,person13@company.com,Graduate Student,Clinical TB,UCSF,S31 PGx,Dropbox;Wynton,Slack;Teams;Email;NONMEM;R,active
+Sejung Hwang,person14@company.com,Postdoc,Clinical TB;HIV,UCSF,C-path,Dropbox,Slack;Teams;Email;NONMEM;R,active
+Angela Li,person15@company.com,Graduate Student,Translational TB,UCSF,Human dose prediction;translational PK-PD modeling,,Slack;Teams;Email;NONMEM;R,active
+Wenske Tuk,person16@company.com,Visiting Graduate Student,AI/Stats;Translational TB,UCSF;Erasmus University Rotterdam,,,Slack;Teams;Email;NONMEM;R,active
+Haftom Temesgen,person17@company.com,Postdoc,AI/Stats;Translational TB,UCSF,Target Hazard Ratio as a Guide for Phase III Clinical Trial,,Slack;Teams;Email;NONMEM;R,active
+Caroline Huang,person18@company.com,Graduate Student,Translational TB;Oncology;Clinical,UCSF,Kramnik lesion;I-SPY2;Diabetes,,Slack;Teams;Email;NONMEM;R,active
+Christine Wan,person19@company.com,Graduate Student,Clinical TB;AI/Stats;HIV;Oncology,UCSF,TTP,Dropbox;Teams,Slack;Teams;Email;NONMEM;R;GitHub,active`;
     
     const csvData = parseCSV(sampleCSV);
     loadCSVData(csvData);
